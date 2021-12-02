@@ -1,2 +1,2 @@
 # cljs-electron
-An Electron applications built using ClojureScript
+An Electron application built using ClojureScript

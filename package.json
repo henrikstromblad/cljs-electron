@@ -1,0 +1,25 @@
+{
+    "name": "cljs-electron",
+    "version": "0.0.1",
+    "main": "resources/public/main.js",
+    "scripts": {
+        "watch": "./node_modules/.bin/shadow-cljs watch main renderer preload",
+        "compile": "./node_modules/.bin/shadow-cljs compile main renderer preload",
+        "clean": "rm -rf resources/public/js/ && rm -rf resources/public/*.js",
+        "start": "ELECTRON_DISABLE_SECURITY_WARNINGS=true electron .",
+        "tw": "npx tailwind -i src/app/tailwind/style.css -o resources/public/css/site.css",
+        "watch:css": "onchange 'src/app/tailwind/*css' -- npm run tw"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.0",
+        "electron": "^16.0.3",
+        "postcss": "^8.4.4",
+        "shadow-cljs": "^2.16.6",
+        "tailwindcss": "^2.2.19"
+    },
+    "dependencies": {
+        "highlight.js": "11.1.0",
+        "react": "17.0.1",
+        "react-dom": "17.0.1"
+    }
+}

@@ -1,0 +1,32 @@
+{:source-paths ["src"]
+
+ :dependencies [[reagent "1.0.0"]
+                [re-frame "1.2.0"]
+                [day8.re-frame/tracing "0.6.2"]
+                [day8.re-frame/re-frame-10x "1.2.0"]]
+
+ :builds {:main {:target    :node-script
+                 :output-to "resources/public/main.js"
+                 :main      app.main.core/main
+                 :dev       {:compiler-options
+                             {:infer-externs true}}}
+
+          :preload {:target    :node-script
+                    :output-to "resources/public/preload.js"
+                    :main      app.preload.core/main
+                    ;;:output-dir "resources/public/"
+                    ;;:exports-var app.preload.core/exposeInMainWorld                    
+                    :dev       {:compiler-options
+                                {:infer-externs true}}}
+          
+          :renderer {:target     :browser
+                     :output-dir "resources/public/js"
+                     :asset-path "js"
+                     :modules    {:renderer {:init-fn app.renderer.core/main}}
+                     :devtools   {:preloads    [day8.re-frame-10x.preload]
+                                  :before-load app.renderer.core/stop
+                                  :after-load  app.main.core/start}
+                     :dev        {:compiler-options
+                                  {:closure-defines
+                                   {re-frame.trace.trace-enabled?        true
+                                    day8.re-frame.tracing.trace-enabled? true}}}}}}

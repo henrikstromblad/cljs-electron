@@ -12,3 +12,11 @@ pom.xml.asc
 .lein-failures
 .nrepl-port
 .cpcache/
+.clj-kondo/
+.lsp/
+.shadow-cljs/
+node_modules/
+resources/public/css
+resources/public/js
+resources/public/*.js
+.DS_Store

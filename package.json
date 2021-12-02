@@ -5,7 +5,7 @@
     "scripts": {
         "watch": "./node_modules/.bin/shadow-cljs watch main renderer preload",
         "compile": "./node_modules/.bin/shadow-cljs compile main renderer preload",
-        "clean": "rm -rf resources/public/js/ && rm -rf resources/public/*.js",
+        "clean": "rm -rf resources/public/js/ && rm -rf resources/public/css && rm -rf resources/public/*.js",
         "start": "ELECTRON_DISABLE_SECURITY_WARNINGS=true electron .",
         "tw": "npx tailwind -i src/app/tailwind/style.css -o resources/public/css/site.css",
         "watch:css": "onchange 'src/app/tailwind/*css' -- npm run tw"

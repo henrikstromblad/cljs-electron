@@ -18,5 +18,6 @@ pom.xml.asc
 node_modules/
 resources/public/css
 resources/public/js
-resources/public/*.js
+resources/public/preload.js
+resources/public/main.js
 .DS_Store
